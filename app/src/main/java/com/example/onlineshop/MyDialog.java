@@ -12,8 +12,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
-import java.util.Objects;
-
 public class MyDialog extends DialogFragment {
 
     @NonNull

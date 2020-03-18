@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void removeItemFromList() {
         removeFlag = !removeFlag;
+        if (removeFlag)
+            Toast.makeText(this, "Remove is active. Long touch the item you want to remove.", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(this, "Remove is deactivated.", Toast.LENGTH_SHORT).show();
     }
 
     private void addItemToList() {
