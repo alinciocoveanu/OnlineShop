@@ -6,6 +6,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,6 +15,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,8 +60,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item3:
                 this.removeItemFromList();
                 break;
+            case R.id.item4:
+                this.preferenceActivity();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void preferenceActivity() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+
+        this.startActivity(intent);
     }
 
     private void removeItemFromList() {
@@ -71,6 +84,32 @@ public class MainActivity extends AppCompatActivity {
     private void addItemToList() {
         DialogFragment dialog = new MyDialog();
         dialog.show(getSupportFragmentManager(), "car_add");
+    }
+
+    public static void saveNewItemToFile(Car car, Context context)
+    {
+        FileOutputStream fos = null;
+
+        try {
+            fos = context.openFileOutput("new_car.txt", MODE_PRIVATE);
+            fos.write(car.getName().getBytes());
+            fos.write(car.getYear());
+            fos.write(car.getPrice());
+            Toast.makeText(context, "Saved new car successfully", Toast.LENGTH_SHORT).show();
+        }
+        catch (IOException e) {
+            Toast.makeText(context, "Saving new car failed", Toast.LENGTH_SHORT).show();
+        }
+        finally {
+            if (fos != null){
+                try {
+                    fos.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override

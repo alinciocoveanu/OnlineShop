@@ -36,6 +36,8 @@ public class MyDialog extends DialogFragment {
                         Car newCar = new Car(name, year, price, null);
 
                         MainActivity.carList.add(newCar);
+
+                        MainActivity.saveNewItemToFile(newCar, getActivity());
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
