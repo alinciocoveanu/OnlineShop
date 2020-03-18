@@ -9,20 +9,22 @@
         android:scaleType="center"
         android:background="#18E4C6"
         android:text="@string/car_details"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:gravity="center"/>
     <EditText
-        android:id="@+id/username"
-        android:inputType="textEmailAddress"
+        android:id="@+id/carName"
+        android:inputType="textPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
-        android:hint="Car Name" />
+        android:hint="@string/car_name"
+        android:importantForAutofill="no" />
     <EditText
-        android:id="@+id/password"
-        android:inputType="textPassword"
+        android:id="@+id/carYear"
+        android:inputType="numberSigned"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -30,5 +32,19 @@
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"
-        android:hint="@string/password"/>
+        android:hint="@string/year"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/carPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif"
+        android:hint="@string/price"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned" />
 </LinearLayout>

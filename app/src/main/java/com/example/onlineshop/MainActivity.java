@@ -2,6 +2,7 @@ package com.example.onlineshop;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +15,10 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    public static ArrayList<Car> carList = new ArrayList<>();
+    public static RecyclerView recyclerView;
     private static final String TAG = "MainActivity";
+    public static Boolean removeFlag = false;
     private int states = 0;
 
     @Override
@@ -56,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void removeItemFromList() {
+        removeFlag = !removeFlag;
     }
 
     private void addItemToList() {
-
+        DialogFragment dialog = new MyDialog();
+        dialog.show(getSupportFragmentManager(), "car_add");
     }
 
     @Override
@@ -110,8 +116,6 @@ public class MainActivity extends AppCompatActivity {
         Car audi = new Car("Audi A4", 2009, 10000, R.mipmap.audi);
         Car bmw = new Car("BMW 520d", 2015, 20000, R.mipmap.bmw);
 
-        ArrayList<Car> carList = new ArrayList<>();
-
         carList.add(civic);
         carList.add(focus);
         carList.add(mondeo);
@@ -123,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         carList.add(audi);
         carList.add(bmw);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(this, carList);
         recyclerView.setAdapter(adapter);

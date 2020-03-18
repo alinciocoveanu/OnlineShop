@@ -2,4 +2,9 @@
     <string name="app_name">OnlineShop</string>
     <string name="textview">TextView</string>
     <string name="car_details">Car Details</string>
+    <string name="car_name">Car Name</string>
+    <string name="year">Year</string>
+    <string name="price">Price</string>
+    <string name="add_car">Add Car</string>
+    <string name="cancel">Cancel</string>
 </resources>

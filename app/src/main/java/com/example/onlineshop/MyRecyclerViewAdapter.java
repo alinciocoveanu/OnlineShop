@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<Car> mData;
+    private static ArrayList<Car> mData;
     private LayoutInflater mInflater;
     private Context mContext;
 
@@ -23,7 +23,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     MyRecyclerViewAdapter(Context context, ArrayList<Car> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mContext = context;
-        this.mData = data;
+        mData = data;
     }
 
     // inflates the row layout from xml when needed
@@ -52,6 +52,17 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 mContext.startActivity(intent);
             }
         });
+
+        holder.parentLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (MainActivity.removeFlag) {
+                    removeAt(position);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     // total number of rows
@@ -71,5 +82,11 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             myTextView = itemView.findViewById(R.id.carList);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
+    }
+
+    private void removeAt(int position) {
+        mData.remove(position);
+        notifyItemChanged(position);
+        notifyItemRangeChanged(position, mData.size());
     }
 }
