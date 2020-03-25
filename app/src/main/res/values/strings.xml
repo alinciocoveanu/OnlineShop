@@ -14,12 +14,4 @@
     <string name="add">Add</string>
     <string name="remove">Remove</string>
     <string name="options">Options</string>
-    <string name="sensors">Sensors</string>
-    <string name="gyroscope">Rotation: </string>
-    <string name="temperature">Temperature: </string>
-    <string name="pressure">Pressure: </string>
-    <string name="light">Light: </string>
-    <string name="accelerometer">Acceleration: </string>
-    <string name="location">Location</string>
-    <string name="coordinates">coordinates</string>
 </resources>

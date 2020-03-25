@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
-import android.hardware.Sensor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -64,17 +63,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item4:
                 this.preferenceActivity();
                 break;
-            case R.id.item5:
-                this.sensorsActivity();
-                break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void sensorsActivity() {
-        Intent intent = new Intent(this, SensorsActivity.class);
-
-        this.startActivity(intent);
     }
 
     private void preferenceActivity() {
