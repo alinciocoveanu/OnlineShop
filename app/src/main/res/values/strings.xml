@@ -22,4 +22,6 @@
     <string name="accelerometer">Acceleration: </string>
     <string name="location">Location</string>
     <string name="coordinates">coordinates</string>
+    <string name="camera">Camera</string>
+    <string name="take_a_picture">Take a picture</string>
 </resources>

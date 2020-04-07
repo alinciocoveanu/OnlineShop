@@ -67,8 +67,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item5:
                 this.sensorsActivity();
                 break;
+            case R.id.item6:
+                this.cameraActivity();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void cameraActivity() {
+        Intent intent = new Intent(this, CameraActivity.class);
+
+        this.startActivity(intent);
     }
 
     private void sensorsActivity() {
